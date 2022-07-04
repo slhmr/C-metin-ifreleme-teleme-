@@ -18,22 +18,21 @@
 char DA[80];char SDO[80];char SA[80];char CDA[80];char YDA[80];char line[max];
 int boy, x, om, c_om;char *sifre;
 char *kodla(char h_gir[], int boy, int k_mik){
-  	 				 char alfabe[91]={"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_{}[]#()<>%:;.?*-+/^&|~!=,$@"};
-					 static int kon_ = 90;
-  					 char *sifre = new char[max];
-			   		 for(int x=0; x<boy; x++){
- 					 		  		 for(int y=0; y<kon_; y++){
-   									 		  if(!isalnum(h_gir[x]) && !ispunct(h_gir[x]) )
-    								 		  sifre[x] = h_gir[x];
-            						 		  else if(h_gir[x]==alfabe[y]){
-                 					 		  	   						   if(k_mik>=0)
-     								 									   sifre[x] = alfabe[(y+k_mik)%kon_];                
-                 					 									   if(k_mik<0)
-    								  									   sifre[x] = alfabe[(y+(k_mik%kon_)+kon_)%kon_];
-                 
-   				 					  									   } 
-														   }
-						   }  
+	char alfabe[91]={"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_{}[]#()<>%:;.?*-+/^&|~!=,$@"};
+	static int kon_ = 90;
+ 	char *sifre = new char[max];
+	for(int x=0; x<boy; x++){
+ 		for(int y=0; y<kon_; y++){
+   			if(!isalnum(h_gir[x]) && !ispunct(h_gir[x]) )
+    				sifre[x] = h_gir[x];
+            		else if(h_gir[x]==alfabe[y]){
+                 	 if(k_mik>=0)
+     				 sifre[x] = alfabe[(y+k_mik)%kon_];                
+                 	if(k_mik<0)
+    				 sifre[x] = alfabe[(y+(k_mik%kon_)+kon_)%kon_];
+                 		} 
+			}
+		}  
   return sifre;
 }
 void gor(){
